@@ -60,7 +60,6 @@ var GetOneBook = makeQuery(sqlgetABook, pool);
 
 app.get("/filter", (req, res)=>{ 
 
-    // kinda done 
     var book_id = req.query.book_id;
     GetOneBook([parseInt(book_id)]).then((results)=>{
         res.json(results);
@@ -73,6 +72,7 @@ app.get("/filter", (req, res)=>{
 
 app.get("/books", (req, res)=>{ 
 
+    // I believe the default limit (10) & default sorting can be easly set on the client side. 
     var title = req.query.title;
     var auther = req.query.auther;
     var sort_keyword = req.query.keyword;
